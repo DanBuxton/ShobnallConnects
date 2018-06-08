@@ -1,0 +1,15 @@
+﻿.marker_details {
+	//display: none;
+	column-span: 1;
+}
+
+#map {
+	column-count: 2; // Not for mobile
+}
+
+.marker {
+	cursor: pointer;
+	//content: url("http://shobnallconnects.epizy.com/assets/img/marker.png");
+
+	//position: relative;
+}

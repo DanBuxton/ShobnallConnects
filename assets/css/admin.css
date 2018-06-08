@@ -1,0 +1,11 @@
+.marker_details {
+  column-span: 1;
+}
+
+#map {
+  column-count: 2;
+}
+
+.marker {
+  cursor: pointer;
+}

@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "sass/admin.css",
+	"sources": [
+		"sass/admin.scss"
+	],
+	"sourcesContent": [
+		"﻿.marker_details {\r\n\t//display: none;\r\n\tcolumn-span: 1;\r\n}\r\n\r\n#map {\r\n\tcolumn-count: 2; // Not for mobile\r\n}\r\n\r\n.marker {\r\n\tcursor: pointer;\r\n\t//content: url(\"http://shobnallconnects.epizy.com/assets/img/marker.png\");\r\n\r\n\t//position: relative;\r\n}"
+	],
+	"mappings": ";AAAA,AAAA,eAAe,CAAC;EAEf,WAAW,EAAE,CAAE;CACf;;;AAED,AAAA,IAAI,CAAC;EACJ,YAAY,EAAE,CAAE;CAChB;;;AAED,AAAA,OAAO,CAAC;EACP,MAAM,EAAE,OAAQ;CAIhB",
+	"names": []
+}
