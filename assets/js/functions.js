@@ -12,22 +12,50 @@ jQuery.fn.rotate = function (degrees) {
     return $(this);
 };
 
-function alternateLanguages(noOfTimes, elem) {
+function alternateLanguages(number, elem) {
+    // English, Urdu, Punjabi, Polish, Latvian
+    //let languages = ["Select your language", "اپنی زبان منتخب کریں", "ਆਪਣੀ ਭਾਸ਼ਾ ਚੁਣੋ", "Wybierz swój język", "Izvēlieties savu valodu"];
+    let languages = ["English", "اردو", "ਪੰਜਾਬੀ", "Polskie", "Latviešu"];
 
-    var languages = ["Select your language", "اپنی زبان منتخب کریں", "ਆਪਣੀ ਭਾਸ਼ਾ ਚੁਣੋ", "Wybierz swój język", "Izvēlieties savu valodu"];
-
-	var element = document.getElementById(elem);
+	var element = $('#' + elem);
 	var interval = 2500;
+    /*
+    while(true) {
+        element.innerHTML = languages[number];
 
-    element.innerHTML = languages[noOfTimes];
+    	if (number < 1) {
+        	clearTimeout(timer);
+            break;
+    	} else {
+            number--;
 
-	if (noOfTimes < 1) {
-    	clearTimeout(timer);
-	} else {
-        noOfTimes--;
-
-        var timer = setTimeout('alternateLanguages(' + noOfTimes + ', "' + elem + '")', interval);
+            var timer = setTimeout('alternateLanguages(' + number + ', "' + elem + '")', interval);
+        }
     }
+    /**/
 
-    element.innerHTML = languages[noOfTimes];
+    element.innerHTML = languages[number-1];
+}
+
+// Marker functions
+
+function showhide_marker_details(id, showHide) {
+    var elemId = id + "_details";
+    var markDetails = $("#" + elemId);
+
+    if (showHide.toLowerCase() == 's') {
+        markDetails.css("display", "block");
+    } else {
+        markDetails.css("display", "none");
+    }
+}
+
+function updateMarker(id, xOrY, value) {
+    var markerId = "#" + id + "_marker";
+    var marker = $(markerId);
+
+    if (xOrY.toLowerCase() == 'x')
+        marker.css("left", value);
+    else
+        marker.css("top", value);
 }

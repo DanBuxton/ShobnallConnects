@@ -1,47 +1,53 @@
 <!Doctype HTML>
 <?php
-	//require 'core/process.php';
-
-	$title = "Home";
+$title = "Home";
 ?>
-
 <html>
-	<head>
-		<?php
-			include 'includes/head.php';
-		?>
-	</head>
-	<body>
-		<?php
-			include 'includes/header.php';
-		?>
+    <head>
+        <?php
+        include 'includes/head.php';
+        ?>
+    </head>
+    <body>
+        <?php
+        include 'includes/header.php';
+        ?>
 
-		<main>
-			<h1>Home</h1>
-			<!-- Select language popup here -->
-			<div id="alternateLanguages" style="width: 100%; text-align: center;">
-				<p id="languages">
-					<?php
-						require 'core/functions.php';
+        <main>
+            <h1><?php echo $title; ?></h1>
 
-						//echo AlternateLanguages(0);
+            <section>
+                <h3>About</h3>
 
-						for ($i=0; $i < count($Languages); $i++) { 
-							//echo alternateLanguages($i);
-						}
-					?>
-				</p>
-			</div>
-		</main>
+                <?php
+                // Google Translate
+                // Needs Billing!?!
 
-		<?php
-			include 'includes/footer.php';
-		?>
+                /* use vendor\google\cloud\Translate\TranslateClient;
 
-		<script type="text/javascript">
-            //alternateLanguages(5, "languages");
+                  $text = "The text to translate.";
+                  $targetLanguage = 'ja';  // Which language to translate to?
+
+                  $translate = new TranslateClient();
+                  $result = $translate->translate($text, [
+                  'target' => $targetLanguage,
+                  'source' => 'en',
+                  ]);
+                  print("Source language: $result[source]\n");
+                  print("Translation: $result[text]\n"); */
+                ?>
+
+                <p>One of the most Known things about Shobnall would be the canal that runs alongside it. The other would be its Beer.</p>
+                <p>Brewing is a key part of the history of Shobnall, with the water in the river Trent containing a higher amount of Gypsum, which is a mineral useful for brewing Ale.</p>
+                <p>Because of its canals, burton and, by proxy, Shobnall was used as a trade route due to it being the furthest port from the sea meaning that resources could be taken incredibly far by making use of the canals and then the rest of the journey could be made by cart.</p>
+            </section>
+        </main>
+
+        <?php
+        include 'includes/footer.php';
+        ?>
+        <script type="text/javascript">
+            alternateLanguages(5, 'languages');
         </script>
-
-		<script src="assets/js/responsive.js"></script>
-	</body>
+    </body>
 </html>

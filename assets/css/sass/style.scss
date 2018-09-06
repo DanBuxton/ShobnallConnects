@@ -37,7 +37,23 @@ $nav-width: 100%;
 $nav-border-color: black;
 $nav-background-color: #aaa;
 
-@media only screen and (min-width: 768px) {
+.marker_details {
+    //display: none;
+    column-span: 1;
+}
+
+#map {
+    column-count: 2; // Not for mobile
+}
+
+.marker {
+    cursor: pointer;
+    //content: url("http://shobnallconnects.epizy.com/assets/img/marker.png");
+
+    //position: relative;
+}
+
+@media only screen and (min-width: 1238px) {
     #links {
         column-count: 2; // Not for mobile
         column-span: all;
@@ -50,12 +66,17 @@ $nav-background-color: #aaa;
             column-span: none;
         }
     }
+
+    nav {
+        height: $nav-height;
+    }
 }
 
 html {
     margin: 0;
 }
 
+/*#region NavBar*/
 header {
     margin: 0;
     background-color: $color-secondary;
@@ -69,12 +90,9 @@ header {
     }
 }
 
-/*#region NavBar*/
-
 nav {
     width: $nav-width;
     font-size: 0; // Removes space between anchor tags
-    height: $nav-height;
     background-color: $color-secondary;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
@@ -96,9 +114,10 @@ nav {
         }
 
         &:hover {
-            color: rgb(191, 91, 255);
+            //color: rgb(191, 91, 255);
             //color: #5b8b80; // Idea 2
             //color: #5b8b80; // Idea 3
+            color: rgb(70, 20, 255);
         }
 
         &.active {
@@ -112,12 +131,11 @@ nav {
         border: none;
     }
 }
-
 /*#endregion NavBar*/
 
 body {
     margin: 0;
-    /**/width: 100%;/**/
+    width: 100%;
     background-color: $color-main;
 }
 
@@ -131,6 +149,7 @@ main h1 {
 }
 
 footer {
+    margin: 0;
     background-color: $color-secondary;
     text-align: center;
 }
@@ -144,32 +163,9 @@ footer {
         }
     }
 }
+
 /*#region Mobile*/
-
-@media only screen and (max-width: 768px) {
-    nav {
-        display: none;
-
-        &.expand {
-            display: inline;
-            width: $nav-width / 2;
-
-            float: left;
-            margin-top: $nav-height;
-
-            a {
-                display: block;
-                
-                text-align: center;
-                padding: 0.5%;
-                font-size: 1.5rem;
-                line-height: $nav-height;
-                /*padding-top: $nav-height - 5;*/
-
-            }
-        }
-    }
-
+@media only screen and (max-width: 1238px) {
     header {
         width: 100%;
         background-color: $color-secondary;
@@ -179,13 +175,39 @@ footer {
         }
 
         #toggle-nav {
+            padding-top: 10px;
+
             visibility: visible;
             display: block;
-            float: left;
+
+            float: right;
+        }
+    }
+    
+    nav {
+        display: none;
+
+        &.expand {
+            display: inline;
+            width: $nav-width / 2;
+
+            text-align: center;
+
+            //float: left;
+            margin-top: $nav-height;
+
+            a {
+                display: block;
+                padding: 0.5%;
+                font-size: 1.5rem;
+                text-align: center;
+                line-height: $nav-height;
+                padding-top: $nav-height - 5;
+
+            }
         }
     }
 }
-
 /*#endregion Mobile*/
 
 .clear {

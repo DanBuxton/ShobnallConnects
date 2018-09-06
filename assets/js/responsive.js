@@ -2,10 +2,13 @@
 var nav = $("#nav");
 
 $().ready(function () {
-    if (window.location.href.includes('Admin'))
-        var url = "../assets/js/functions.js";
-    else
-        var url = "assets/js/functions.js";
+    var url = window.location.pathname;
+    var filename = (url.substring(0, url.lastIndexOf('/')));
+
+    filename = filename.substring(filename.lastIndexOf('/') + 1).toLowerCase();
+
+    url = "/assets/js/functions.js";
+
     $.getScript(url, function () {
         toggleNav.click(function () {
             // Get this to animate
@@ -13,6 +16,7 @@ $().ready(function () {
             //toggleNav.css("animate", "transform: rotate(90)");
 
             var menuicon = document.getElementsByClassName("icon-menu");
+
             if (menuicon.length > 0) {
                 // Open
                 toggleNav.removeClass("icon-menu");
@@ -32,5 +36,12 @@ $().ready(function () {
             // Animate the navbar from the left
             //nav.animate({ "transform": "200px" }, "slow");
         });
+        /**/
+        toggleNav.removeClass("icon-menu");
+        toggleNav.addClass("icon-cancel");
+
+        nav.removeClass("collapse");
+        nav.addClass("expand");
+        /**/
     });
 });
