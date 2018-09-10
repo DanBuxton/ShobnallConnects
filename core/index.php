@@ -1,30 +1,29 @@
 <?php
+	$error = 0x00;
 
-$error = 0x00;
+	if ($_SERVER['REQUEST_METHOD'] == "POST") {
+		if (isset($_POST['lang']) && isset($_POST['name']) && isset($_POST['return'])) {
+	    	$lang = $_POST['lang'];
+				$ret = $_POST['return'];
 
-if (filter_input(INPUT_SERVER, 'REQUEST_METHOD') == "POST") {
-    if (isset(filter_input(INPUT_GET, 'lang')) && isset(filter_input(INPUT_GET, 'name')) && isset(filter_input(INPUT_GET, 'return'))) {
-        $lang = filter_input(INPUT_GET, 'lang');
-        $ret = filter_input(INPUT_GET, 'return');
+	    	$cookie_name = $_POST['name'];
 
-        $cookie_name = filter_input(INPUT_POST, 'name');
+	    	if (strpos(strtolower($lang), "select") === false) {
+	    		// Destroy Old
+	    		setcookie($cookie_name, "", time() - 3600);
 
-        if (strpos(strtolower($lang), "select") === false) {
-            // Destroy Old
-            setcookie($cookie_name, "", time() - 3600);
-
-            // Create New
-            setcookie($cookie_name, $lang, time() + (86400 * 30), "/"); // 86400 = 1 day
+	    		// Create New
+				setcookie($cookie_name, $lang, time() + (86400 * 30), "/"); // 86400 = 1 day
 
 
-            header("Location: $ret");
-        } else {
-            header("Location: /chng-lang/?nm=$cookie_name&ret=" . filter_input(INPUT_GET, 'return') . "&error=1");
-        }
-    } else {
-        header("Location: /");
-    }
-} else {
-    header("Location: /");
-}
+				header("Location: $ret");
+			} else {
+				header("Location: /chng-lang/?nm=$cookie_name&ret=" . $_POST["return"] . "&error=1");
+			}
+	    } else {
+			header("Location: /");
+		}
+	} else {
+		header("Location: /");
+	}
 ?>

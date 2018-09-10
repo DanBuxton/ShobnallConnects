@@ -36,7 +36,7 @@ $().ready(function () {
             // Animate the navbar from the left
             //nav.animate({ "transform": "200px" }, "slow");
         });
-        /**/
+        /*
         toggleNav.removeClass("icon-menu");
         toggleNav.addClass("icon-cancel");
 

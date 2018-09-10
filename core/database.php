@@ -1,28 +1,29 @@
 <?php
+	class Database {
+		
+		// Server Login details
+		/**/
+		public $server = "sql204.epizy.com";
+		public $username = "epiz_22098015";
+		private $password = "Shobnall";
+		public $database = "epiz_22098015_ShobnallConnects";
+		/**/
 
-class Database {
+		/*
+		public $server = "localhost";
+		public $username = "root";
+		private $password = "root";
+		public $database = "ShobnallConnects";
+		/**/
 
-    // Server Login details
-    /*
-      public $server = "sql204.epizy.com";
-      public $username = "epiz_22098015";
-      private $password = "Shobnall";
-      public $database = "epiz_22098015_ShobnallConnects";
-      /* */
+		public $db;
 
-    /**/
-    public $server = "localhost";
-    public $username = "root";
-    private $password = "root";
-    public $database = "ShobnallConnects";
-    /**/
-    public $db;
+		public function __construct()
+		{
+			$this->db = new PDO("mysql:host=$this->server;dbname=$this->database",$this->username,$this->password) or die("Database connection aborted" . $this->db->connect_error);
+			$this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    public function __construct() {
-        $this->db = new PDO("mysql:host=$this->server;dbname=$this->database", $this->username, $this->password) or die("Database connection aborted" . $this->db->connect_error);
-        $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-        $this->db->query("
+			$this->db->query("
 				CREATE TABLE IF NOT EXISTS markers (
 					name varchar(50) NOT NULL,
 					website varchar(100) DEFAULT NULL,
@@ -38,17 +39,14 @@ class Database {
 					ADD PRIMARY KEY ('id'),
 					ADD UNIQUE KEY 'id' ('id'),
 					ADD KEY 'id_2' ('id'),
-					ADD KEY 'id_3' ('id');
-				");
+					ADD KEY 'id_3' ('id');");
+			
+			//$this->db->query("");
+		}
 
-
-        //$this->db->query("");
-    }
-
-    public function Dispose() {
-        $this->db = null;
-    }
-
-}
-
+		public function Dispose()
+		{
+			$this->db = null;
+		}
+	}
 ?>
