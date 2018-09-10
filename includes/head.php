@@ -1,5 +1,7 @@
 <?php
 
+error_reporting(0);
+
 function customError($errno, $errstr) {
     echo "<b>Error:</b> [$errno] $errstr<br>";
     echo "Webmaster has been notified";
@@ -62,8 +64,6 @@ if (!isset(filter_input(INPUT_COOKIE, $cookie_name))) {
         }
     }
 }
-
-error_reporting(0);
 ?>
 
 <meta name="application-name" content="Shobnall Connect" />
