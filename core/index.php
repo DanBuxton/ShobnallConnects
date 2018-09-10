@@ -2,8 +2,6 @@
 
 $error = 0x00;
 
-
-
 if (filter_input(INPUT_SERVER, 'REQUEST_METHOD') == "POST") {
     if (isset(filter_input(INPUT_GET, 'lang')) && isset(filter_input(INPUT_GET, 'name')) && isset(filter_input(INPUT_GET, 'return'))) {
         $lang = filter_input(INPUT_GET, 'lang');
