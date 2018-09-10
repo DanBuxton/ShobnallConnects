@@ -1,0 +1,34 @@
+<?php
+
+static $languages = array('English', 'اردو', 'ਪੰਜਾਬੀ', 'Polskie', 'Latviešu');
+static $langCodes = array('en', 'ur', 'pa', 'pl', 'la');
+
+function ChangeDateFormat($date) {
+    return date_format($date, "j/m/Y");
+}
+
+function test_input($data) {
+    
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    //$data = filter_input($type, $data);
+    return $data;
+}
+
+$Languages = array("Select your language", "اپنی زبان منتخب کریں", "ਆਪਣੀ ਭਾਸ਼ਾ ਚੁਣੋ", "Wybierz swój język", "Izvēlieties savu valodu");
+$SupportedLanguages = array("English", "Urdu", "Punjabi", "Polish", "Latvian");
+
+function AlternateLanguages($index = 0) {
+    $Languages = array("Select your language", "اپنی زبان منتخب کریں", "ਆਪਣੀ ਭਾਸ਼ਾ ਚੁਣੋ", "Wybierz swój język", "Izvēlieties savu valodu");
+
+    $differentLanuages = '';
+    
+    for ($i = 0; $i < count($Languages); $i++) {
+        $differentLanuages .= '<p class="language">' . $Languages[$i] . '</p>';
+    }
+
+    return $differentLanuages;
+}
+
+?>
