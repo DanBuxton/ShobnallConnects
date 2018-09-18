@@ -1,30 +1,32 @@
 <?php
-	static $languages = array('English', 'اردو', 'ਪੰਜਾਬੀ', 'Polskie', 'Latviešu');
-	static $langCodes = array('en', 'ur', 'pa', 'pl', 'la');
 
-	function ChangeDateFormat($date) {
-		return date_format($date, "j/m/Y");
-	}
-	function test_input($data) {
-		$data = trim($data);
-		$data = stripslashes($data);
-		$data = htmlspecialchars($data);
-		return $data;
-	}
+static $languages = array('English', 'اردو', 'ਪੰਜਾਬੀ', 'Polskie', 'Latviešu');
+static $langCodes = array('en', 'ur', 'pa', 'pl', 'la');
 
-	$Languages = array("Select your language", "اپنی زبان منتخب کریں", "ਆਪਣੀ ਭਾਸ਼ਾ ਚੁਣੋ", "Wybierz swój język", "Izvēlieties savu valodu");
-	$SupportedLanguages = array("English", "Urdu", "Punjabi", "Polish", "Latvian");
+function ChangeDateFormat($date) {
+    return date_format($date, "j/m/Y");
+}
 
-	function AlternateLanguages($index)
-	{
-		$Languages = array("Select your language", "اپنی زبان منتخب کریں", "ਆਪਣੀ ਭਾਸ਼ਾ ਚੁਣੋ", "Wybierz swój język", "Izvēlieties savu valodu");
+function test_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
 
-		$differentLanuages = '';
+$Languages = array("Select your language", "اپنی زبان منتخب کریں", "ਆਪਣੀ ਭਾਸ਼ਾ ਚੁਣੋ", "Wybierz swój język", "Izvēlieties savu valodu");
+$SupportedLanguages = array("English", "Urdu", "Punjabi", "Polish", "Latvian");
 
-		for ($i=0; $i < count($Languages); $i++) {
-			$differentLanuages .= '<p class="language">' . $Languages[$i] . '</p>';
-		}
+function AlternateLanguages($index) {
+    $Languages = array("Select your language", "اپنی زبان منتخب کریں", "ਆਪਣੀ ਭਾਸ਼ਾ ਚੁਣੋ", "Wybierz swój język", "Izvēlieties savu valodu");
 
-		return $differentLanuages;
-	}
+    $differentLanuages = '';
+
+    for ($i = 0; $i < count($Languages); $i++) {
+        $differentLanuages .= '<p class="language">' . $Languages[$i] . '</p>';
+    }
+
+    return $differentLanuages;
+}
+
 ?>

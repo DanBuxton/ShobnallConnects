@@ -25,6 +25,8 @@ require '../Marker.php';
         ?>
 
         <main>
+            <button onclick="updateLocationsFile()">Update Map Locations</button>
+
             <form method="get" action="updateMarker.php">
                 <h1>ShobnallConnects</h1>
 
@@ -116,5 +118,11 @@ require '../Marker.php';
         <?php
         include '../includes/footer.php';
         ?>
+
+        <script>
+            function updateLocationsFile() {
+                window.location = "UpdateMapLocations/";
+            }
+        </script>
     </body>
 </html>

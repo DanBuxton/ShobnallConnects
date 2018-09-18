@@ -1,15 +1,16 @@
 <?php
-	require 'database.php';
 
-	$database = new Database();
-	$db = $database->db;
+require 'database.php';
 
-	//echo "Server: $database->server<br />";
-	//echo "Username: $database->username<br />";
-	//echo "Password: $database->password\n"; // Private
-	//echo "Database: $database->database<br />";
+$database = new Database();
+$db = $database->db;
 
-	date_default_timezone_set('Europe/London');
+$remoteURL = "shobnallconnects.epizy.com";
 
-	include 'functions.php';
-?>
+//echo "Server: " . $database->getServer() . "<br />";
+//echo "Username: " . $database->getUsername() . "<br />";
+//echo "Database: " . $database->getDatabase() . "<br />";
+
+date_default_timezone_set('Europe/London');
+
+include 'functions.php';

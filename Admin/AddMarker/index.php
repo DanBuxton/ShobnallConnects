@@ -2,12 +2,6 @@
 <?php
 require '../../core/process.php';
 require '../../Marker.php';
-
-/**/
-session_start();
-
-echo $_SESSION["username"];
-/**/
 ?>
 
 <html>
