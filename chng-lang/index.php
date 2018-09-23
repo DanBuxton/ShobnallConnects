@@ -45,32 +45,33 @@ include '../includes/head.php';
         require '../core/functions.php';
 
         if ($_SERVER['REQUEST_METHOD'] == "GET") {
-            if (isset($_GET["nm"])) {
-                $cookie_name = $_GET["nm"];
+            if (filter_input(INPUT_GET, 'nm')) {
+                $cookie_name = filter_input(INPUT_GET, 'nm');
 
                 //echo '<form method="post" action="' . $_SERVER['PHP_SELF'] . '">';
                 echo '<form method="post" action="/core/">';
 
                 // Dropdown for languages??
-                echo '<select name="lang" class="' . (isset($_GET["error"]) ? ($_GET["error"] === "1" ? "error" : "") : "") . '">';
+                echo '<select name="lang" class="' . (filter_input(INPUT_GET, 'error') ? (filter_input(INPUT_GET, 'error') === "1" ? "error" : "") : "") . '">';
                 echo '<option>Select your language</option>';
                 for ($i = 0; $i < count($languages); $i++) {
                     $language = $languages[$i];
-
-                    if (!empty($_COOKIE[$cookie_name]))
-                        echo '<option value="' . strtolower($langCodes[$i]) . '"' . (strtolower($langCodes[$i]) === $_COOKIE[$cookie_name] ? ' selected="selected"' : '') . '>' . $language . '</option>';
-                    else
-                        echo '<option value="' . $language . '">' . $language . '</option>';
+                    
+                    if (filter_input(INPUT_COOKIE, $cookie_name) == 0) {
+                        echo '<option value="' . strtolower($langCodes[$i]) . '"' . (strtolower($langCodes[$i]) === filter_input(INPUT_COOKIE, $cookie_name) ? ' selected="selected"' : '') . '>' . $language . '</option>';
+                    } else {
+                        echo '<option value="' . strtolower($langCodes[$i]) . '">' . $language . '</option>';
+                    }
                 }
-                echo "</select><span" . (isset($_GET["error"]) ? ($_GET["error"] === "1" ? ' class="error"' : "") : "") . "> *</span>";
+                echo "</select><span" . (filter_input(INPUT_GET, 'error') ? (filter_input(INPUT_GET, 'error') === "1" ? ' class="error"' : "") : "") . "> *</span>";
 
                 echo "<br />";
 
                 echo '<input type="submit" value="Update" />';
 
-                echo '<input name="name" type="text" value="' . $_GET["nm"] . '" style="display: none;" />';
+                echo '<input name="name" type="text" value="' . filter_input(INPUT_GET, 'nm') . '" style="display: none;" />';
 
-                echo '<input name="return" type="text" value="' . $_GET["ret"] . '" style="display: none;" />';
+                echo '<input name="return" type="text" value="' . filter_input(INPUT_GET, 'ret') . '" style="display: none;" />';
 
                 echo "</form>";
             } else {

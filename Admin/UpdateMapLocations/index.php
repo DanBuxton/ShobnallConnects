@@ -2,14 +2,17 @@
 
 <?php
 require '../../core/process.php';
+if (filter_input(INPUT_SERVER, "REQUEST_METOD") == "post") {
+    
+} else {
+    echo 'Hi There';
 
-echo 'Hi There';
+    $db->query("SELECT * "
+                    . "FROM Markers "
+                    . "INTO OUTFILE 'http://" . $remoteURL . "/locations.csv' "
+                    . "FIELDS TERMINATED BY ',' "
+                    . "ENCLOSED BY '\"' "
+                    . "LINES TERMINATED BY '\n';") or die('Error with database');
 
-$db->query("SELECT * "
-        . "FROM Markers "
-        . "INTO OUTFILE 'http://" . $remoteURL . "/locations.csv' "
-        . "FIELDS TERMINATED BY ',' "
-        . "ENCLOSED BY '\"' "
-        . "LINES TERMINATED BY '\n';") or die('Error with query');
-
-echo 'Hi There After';
+    echo 'Hi There After';
+}

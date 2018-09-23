@@ -6,7 +6,7 @@ require '../Marker.php';
 $title = "Map & Walks";
 ?>
 
-<html>
+<html lang="en">
     <head>
         <?php
         include '../includes/head.php';
@@ -27,7 +27,7 @@ $title = "Map & Walks";
             <h1><?php echo $title; ?></h1>
             <!--<h2><b>Still in Development</b></h2>-->
 
-            <canvas id="canvas" class="canvas"></canvas>
+            <div id="canvas" class="canvas"></div>
         </main>
 
         <div class="clear"></div>

@@ -26,9 +26,9 @@ require '../../Marker.php';
                 <br />
                 <input type="text" name="desc" placeholder="Business Description" />
                 <br />
-                <input type="number" name="lat" placeholder="Location (Latitude)" />
+                <input type="text" name="lat" placeholder="Location (Latitude)" />
                 <br />
-                <input type="number" name="long" placeholder="Location (Longitude)" />
+                <input type="text" name="long" placeholder="Location (Longitude)" />
                 <br />
                 <select name="type">
                     <?php

@@ -1,0 +1,7 @@
+id,name,website,lat,lng,type,address,phone_number,desc
+1,S Aidan’s,http://www.burton-on-trent.org.uk/,52.80962,-1.664562,FaithGroup,"Shobnall Rd, Burton upon Trent, DE14 2BB",01283 565570,NULL
+2,St Paul's Church,NULL,52.808376,-1.646435,FaithGroup,"St Paul's Square, Burton upon Trent, DE14 2EF",NULL,NULL
+5,Jamia Mosque,https://www.facebook.com/burton.mosque,52.810029,-1.642439,FaithGroup,"134 Princess St, Burton upon Trent DE14 2NT",NULL,NULL
+4,NewBaptist church,http://www.newbaptistchurch.co.uk/,52.810549,-1.639887,FaithGroup,"79 Derby St, Burton on Trent, DE14 2LE",01283 546736,NULL
+6,Princess Street Training Education & Enterprise Centre,http://princesstrainingcentre.org.uk/,52.810506,-1.642336,TrainingCentre,"25-28 Princess St, Burton on Trent, DE14 2NW",01283 511111,NULL
+7,East Staffs Children's Centre,https://www.staffordshire.gov.uk/education/childcare/families/ccentres/eaststaffs/East-Staffordshire,52.80852,-1.643833,ChildrensCentre,"Waterloo St, Burton on Trent, DE14 2NJ",01283 233400,NULL

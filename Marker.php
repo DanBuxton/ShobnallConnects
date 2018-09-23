@@ -12,20 +12,20 @@ class Marker {
     public static $BuildingTypes = array('FaithGroup', 'TrainingCentre', 'ChildrensCentre', 'Leisure', 'TownHall', 'Education', 'TheHub', 'CommunityCentre', 'Parks', 'Shops');
     public $Id;
     public $Name;
-    public $X;
-    public $Y;
+    public $Lat;
+    public $Lng;
     public $Type;
     public $Address;
     public $Website;
     public $PhoneNumber;
     public $Description;
 
-    public function __construct($name = "", $x = 0, $y = 0, $markerType = "", $address = "", $website = "", $phoneNumber = "", $descriptions = array()) {
+    public function __construct($name, $lat, $lng, $markerType, $address, $website = "", $phoneNumber = "", $descriptions = array()) {
         $this->Id = Guid();
 
         $this->Name = $name;
-        $this->X = $x;
-        $this->Y = $y;
+        $this->Lat = $lat;
+        $this->Lng = $lng;
         $this->Type = $markerType;
         $this->Address = $address;
         $this->Website = $website;
@@ -35,7 +35,6 @@ class Marker {
             $this->Description .= $descriptions[$i] . (($i + 1) === count($descriptions) ? '' : '\n');
         }
     }
-
 }
 
 ?>

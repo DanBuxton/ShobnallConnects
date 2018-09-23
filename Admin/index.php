@@ -30,9 +30,9 @@ require '../Marker.php';
             <form method="get" action="updateMarker.php">
                 <h1>ShobnallConnects</h1>
 
-                <a id="addLocation" href="/Admin/AddMarker/" />
-
+                <a id="addLocation" href="/Admin/AddMarker/" />Add new location</a>
                 <p>Select a location from the map to alter it's information</p>
+                
 
                 <div id="map">
                     <?php
@@ -58,8 +58,8 @@ require '../Marker.php';
                     while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
                         $id = $row["id"];
                         $name = $row["name"];
-                        $x = $row["x"];
-                        $y = $row["y"];
+                        $x = $row["lat"];
+                        $y = $row["long"];
                         $type = $row["type"];
                         $address = $row["address"];
                         $website = $row["website"];

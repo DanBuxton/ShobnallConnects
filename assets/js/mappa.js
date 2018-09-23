@@ -8,13 +8,13 @@ const mappa = new Mappa('Google', key);
 const options = {
     lat: 52.807125,
     lng: -1.655535,
-    zoom: 15,
+    zoom: 14,
     width: 640,
     height: 500,
     scale: 1,
     format: 'PNG',
     language: 'en',
-    maptype: 'default'
+    maptype: 'default',
 };
 
 // Create the static map reference.
@@ -23,33 +23,42 @@ let myMap = mappa.staticMap(options);
 let img;
 let locations;
 
+let marker;
+
 function preload() {
     // Load the image
-    img = loadImage(myMap.imgUrl);
+    img = loadImage('http://shobnallconnects.epizy.com/assets/img/map.png');
+//    img = loadImage(myMap.imgUrl); // Not many API calls avaliable
     // Load the data
-    locations = loadTable('http://shobnallconnects.epizy.com/locations.csv', 'csv'); // Must be http not https
+    locations = loadTable('../../Markers.csv', 'csv', 'header'); // Can't be https
+    
+    marker = loadImage('http://shobnallconnects.epizy.com/assets/img/marker.png');
 }
-
-//alert(locationsCSV);
 
 function setup() {
     createCanvas(options.width, options.height).parent('canvas');
     background(100);
     noStroke();
     // Display the image
-    //image(img, 0, 0);
+    image(img, 0, 0);
     
     // Show the locations
-    /*
-    for (let i = 0; i < locations.getRowCount(); i++) {
-        break;
-        // Get the lat/lng of each meteorite
+    
+//    alert("Locations: " + locations.getRowCount());
+    
+    /**/
+    for (var i = 0; i < locations.getRowCount(); i++) {
+        //break;
+        // Get the lat/lng of each location
+//        alert("Row: " + i + "; lat: " + locations.getString(i, 'lat'));
         const pos = myMap.latLngToPixel(locations.getString(i, 'lat'), locations.getString(i, 'long'));
-        // Get the size of the meteorite and map it.
-        let size;// = locations.getString(i, 'mass (g)');
-        size = 10;//map(size, 0, 60000000, 3, 25);
-        fill(255, 182, 193);
-        ellipse(pos.x, pos.y, size, size);
+        const type = locations.getString(i, 'type');
+        
+        let size = 8;
+        
+        fill(0, 0, 0);
+        ellipse(pos.x, pos.y, size, size); // Need to make this clickable to view information about it
+//        image(marker, pos.x, pos.y, size, size);
     }
     /**/
 }
